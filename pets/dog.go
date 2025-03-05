@@ -11,6 +11,7 @@ type Dog struct {
 	Color     string
 	Breed     string
 	lastSlept time.Time
+	Animal
 }
 
 func (d Dog) needsSleep() bool {
@@ -21,7 +22,7 @@ func (d Dog) sleep() {
 	d.lastSlept = time.Now()
 }
 
-func (d Dog) Feed(food string) string {
+func (d Dog) FeedDog(food string) string {
 	return fmt.Sprintf("%s is eating %s", d.Name, food)
 }
 
@@ -51,5 +52,6 @@ func NewDog(name, color, breed string, lastSlept time.Time) Dog {
 		Color:     color,
 		Breed:     breed,
 		lastSlept: lastSlept,
+		Animal:    Animal{lastAte: time.Now()},
 	}
 }

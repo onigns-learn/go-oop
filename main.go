@@ -15,6 +15,13 @@ func main() {
 		time.Now().Add((time.Duration(-5) * time.Hour)),
 	)
 
-	fmt.Println(pet.Feed("steak"))
+	if pet.IsHungry() {
+		fmt.Println(pet.Feed("steak"))
+	} else {
+		fmt.Printf("%s isn't hungry", pet.Name)
+		time.Sleep(5 * time.Second)
+		fmt.Println(pet.Feed("Kibble"))
+	}
+
 	fmt.Println(pet.GiveAttention("playing fetch"))
 }
