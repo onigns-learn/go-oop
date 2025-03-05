@@ -7,11 +7,10 @@ import (
 )
 
 type Dog struct {
-	Name      string
+	Animal
 	Color     string
 	Breed     string
 	lastSlept time.Time
-	Animal
 }
 
 func (d Dog) needsSleep() bool {
@@ -46,12 +45,11 @@ func (d Dog) GiveAttention(activity string) string {
 	return fmt.Sprintf("%s loves attention, %s will cause him to %s", d.Name, activity, response)
 }
 
-func NewDog(name, color, breed string, lastSlept time.Time) Dog {
+func NewDog(name, color, breed string, lastSlept time.Time) Pet {
 	return Dog{
-		Name:      name,
 		Color:     color,
 		Breed:     breed,
 		lastSlept: lastSlept,
-		Animal:    Animal{lastAte: time.Now()},
+		Animal:    Animal{Name: name, lastAte: time.Now()},
 	}
 }

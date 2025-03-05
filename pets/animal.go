@@ -6,7 +6,12 @@ import (
 )
 
 type Animal struct {
+	Name    string
 	lastAte time.Time
+}
+
+func (a Animal) GetName() string {
+	return a.Name
 }
 
 func (a Animal) Feed(food string) string {
